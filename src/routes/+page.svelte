@@ -1,5 +1,24 @@
 
+<script>
+  import { slide } from "svelte/transition";
+  let drawing = false;
+</script>
 
+{#if drawing}
+  <div transition:slide={{ delay: 250, duration: 300 }}>
+    fades in  and out
+    <p>
+      hi hi
+    </p>
+  </div>
+{/if}
+<button on:click={() => (drawing = !drawing)}>
+  hi hi
+</button>
+
+
+// Other transitions
+[Blur, Scale, Fly, Draw, Slide]
 <section id="main-content">
     <div id="content-area">
       <h1>Hello!</h1>
