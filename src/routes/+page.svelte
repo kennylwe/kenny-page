@@ -4,22 +4,14 @@
   let drawing = false;
 </script>
 
+<title>Kenny's site</title>
+
+<div id="background"></div>
+
+
 {#if drawing}
-  <div transition:slide={{ delay: 250, duration: 300 }}>
-    fades in  and out
-    <p>
-      hi hi
-    </p>
-  </div>
-{/if}
-<button on:click={() => (drawing = !drawing)}>
-  hi hi
-</button>
-
-
-// Other transitions
-[Blur, Scale, Fly, Draw, Slide]
-<section id="main-content">
+  <div transition:slide={{ delay: 100, duration: 1000 }}>
+    <section id="main-content">
     <div id="content-area">
       <h1>Hello!</h1>
       <p>
@@ -28,8 +20,20 @@
       </p>
     </div>
   </section>
+</div>
 
-  
+{/if}
+<button on:click={() => (drawing = !drawing)}>
+  {drawing ? "Hide Content" : "Show Content"}
+</button>
+
+
+<!--
+  This is a simple Svelte component that toggles the visibility of a section
+  with a slide transition when the button is clicked.
+// Other transitions
+<!  [Blur, Scale, Fly, Draw, Slide]
+-->
 
 
 
@@ -40,6 +44,16 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+    }
+
+    #background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #1f1e1e;
+      z-index: -1;
     }
 
     #content-area {
